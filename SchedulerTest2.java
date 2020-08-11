@@ -10,12 +10,12 @@ public class SchedulerTest2 {
 	public static void main(String[] args) throws Exception {
 		
 		
-		Flowable<Long> flowable = Flowable.interval(300L, TimeUnit.MILLISECONDS)
+		Flowable<Long> flowable = Flowable.interval(800L, TimeUnit.MILLISECONDS)
 				.onBackpressureDrop();
 		
 		
 		flowable
-		.observeOn(Schedulers.computation(),false,2)
+		//.observeOn(Schedulers.computation(),false,1)
 		.subscribe(new ResourceSubscriber<Long>() {
 
 			@Override
@@ -29,7 +29,7 @@ public class SchedulerTest2 {
 				}
 				
 				String threadName=Thread.currentThread().getName();
-				System.out.println(threadName+": "+t);
+				System.out.println(System.currentTimeMillis()+"π–∏Æ√  "+threadName+": "+t);
 			}
 
 			@Override
@@ -46,7 +46,7 @@ public class SchedulerTest2 {
 			
 		});
 		
-		Thread.sleep(3700);
+		Thread.sleep(10000);
 	}
 	
 }
