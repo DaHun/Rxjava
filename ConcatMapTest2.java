@@ -40,7 +40,7 @@ public class ConcatMapTest2 {
 				.concatMap(function);
 		
 		
-		flowable.subscribe(new DebugSubscriber<>());
+		//flowable.subscribe(new DebugSubscriber<>());
 		
 		Thread.sleep(7000L);
 		
